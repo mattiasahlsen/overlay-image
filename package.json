@@ -1,7 +1,7 @@
 {
   "name": "overlay-image",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Image-with-overlay component for Vue.",
 
   "main": "dist/overlay-image.ssr.js",
   "browser": "dist/overlay-image.esm.js",

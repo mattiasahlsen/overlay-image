@@ -1,23 +1,29 @@
 <template>
   <div
     class="overlay-image-container"
+    :class="[{ pointer: $listeners.click }, containerClass]"
     :style="style"
     @mouseenter="mouseenter"
     @mouseleave="mouseleave"
-    :class="{ pointer: $listeners.click }"
     v-on="$listeners"
   >
     <div
       class="overlay-image-overlay"
-      :class="[ showOverlay ? 'show-overlay' : {
-        'from-top': enterFrom === 'top' || enterFrom === null,
-        'from-left': enterFrom === 'left',
-        'from-right': enterFrom === 'right',
-        'from-bottom': enterFrom === 'bottom',
-      }]"
+      :class="[
+        showOverlay ? 'show-overlay' : {
+          'from-top': enterFrom === 'top' || enterFrom === null,
+          'from-left': enterFrom === 'left',
+          'from-right': enterFrom === 'right',
+          'from-bottom': enterFrom === 'bottom',
+        },
+        overlayClass,
+      ]"
     >
-      <p class="overlay-image-text">
-        {{ text }}
+      <p
+        class="overlay-image-text"
+        :class="[ textClass ]"
+      >
+        {{ text || '' }}
       </p>
     </div>
   </div>
@@ -26,7 +32,10 @@
 <script>
 export default {
   name: 'OverlayImage',
-  props: ['image', 'to', 'text', 'height'],
+  props: [
+    'image', 'to', 'text', 'height',
+    'containerClass', 'overlayClass', 'textClass'
+  ],
   data () {
     return {
       enterFrom: null,
