@@ -50,7 +50,6 @@ export default Vue.extend({
         :image="example.img"
         :text="example.text"
         :to="example.to"
-        :height="300"
         @click="() => clickHandler(example)"
       />
     </div>
@@ -75,10 +74,14 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));;
+  flex: 1;
 }
 @media (min-width: 768px) {
   .grid {
