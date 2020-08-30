@@ -45,6 +45,7 @@ export default Vue.extend({
   <div id="app">
     <div class="grid">
       <OverlayImage
+        class="grid-item"
         v-for="example in examples"
         :key="example.img"
         :image="example.img"
@@ -80,12 +81,14 @@ html, body {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));;
+  grid-template-columns: repeat(1, 100%);
+  grid-template-rows: repeat(4, 25%);
   flex: 1;
 }
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
   }
 }
 
